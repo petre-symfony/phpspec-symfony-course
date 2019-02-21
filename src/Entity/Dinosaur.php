@@ -9,7 +9,7 @@ class Dinosaur {
     return $this->length;
   }
 
-    public function setLength($argument1) {
-      // TODO: write logic here
+    public function setLength(int $length) {
+      $this->length = $length;
     }
 }
