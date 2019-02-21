@@ -1,4 +1,7 @@
 {
     "license": "proprietary",
-    "type": "project"
+    "type": "project",
+    "require-dev": {
+        "phpspec/phpspec": "^5.1"
+    }
 }
