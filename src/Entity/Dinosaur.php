@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 class Dinosaur {
-  public function getLength() {
-    // TODO: write logic here
+	private $length=0;
+
+  public function getLength():int {
+    return $this->length;
   }
 }
