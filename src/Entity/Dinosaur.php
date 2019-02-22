@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 class Dinosaur {
-	private $length=0;
+	private $length=30;
 
   public function getLength():int {
     return $this->length;
