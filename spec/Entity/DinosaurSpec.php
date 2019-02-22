@@ -7,7 +7,15 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class DinosaurSpec extends ObjectBehavior {
-  function it_is_initializable() {
+	public function getMatchers(): array {
+		return [
+			'returnZero' => function($subject){
+				return $subject === 0;
+			}
+		];
+	}
+
+	function it_is_initializable() {
       $this->shouldHaveType(Dinosaur::class);
   }
 
