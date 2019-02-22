@@ -15,6 +15,10 @@ class DinosaurSpec extends ObjectBehavior {
   	$this->getLength()->shouldReturn(0);
   }
 
+  function it_should_default_to_zero_length_using_custom_matcher(){
+    $this->getLength()->shouldReturnZero();
+  }
+
   function it_should_allow_to_set_length(){
   	$this->setLength(9);
 
