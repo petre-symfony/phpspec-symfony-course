@@ -5,12 +5,19 @@ namespace spec\App\Entity;
 use App\Entity\Dinosaur;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use PhpSpec\Exception\Example\FailureException;
 
 class DinosaurSpec extends ObjectBehavior {
 	public function getMatchers(): array {
 		return [
 			'returnZero' => function($subject){
-				return $subject === 0;
+				if ($subject !== 0){
+					throw new FailureException(sprintf(
+						"Returned value should be zero, got %s",
+							$subject
+					));
+				}
+				return true;
 			}
 		];
 	}
