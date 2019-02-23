@@ -45,6 +45,6 @@ class DinosaurSpec extends ObjectBehavior {
 
 		$this->getLength()->shouldBeGreaterThan(12);
 
-		var_dump($this);
+		var_dump($this->getWrappedObject());
   }
 }

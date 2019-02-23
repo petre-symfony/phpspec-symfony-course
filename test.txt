@@ -1,0 +1,4 @@
+object(App\Entity\Dinosaur)#445 (1) {
+  ["length":"App\Entity\Dinosaur":private]=>
+  int(15)
+}
