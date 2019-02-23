@@ -62,7 +62,7 @@ class DinosaurSpec extends ObjectBehavior {
 
 		$this->shouldBeAnInstanceOf(Dinosaur::class);
 		$this->getGenus()->shouldBeString();
-		$this->getGenus()->shouldBe('Velociraptor');
+		$this->getGenus()->shouldBe('velociraptor');
 		$this->getLength()->shouldBe(5);
 	}
 }
