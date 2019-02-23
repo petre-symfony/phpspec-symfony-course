@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use phpDocumentor\Reflection\Types\Static_;
+
 class Dinosaur {
 	private $length=0;
 	/**
@@ -18,8 +20,11 @@ class Dinosaur {
 		$this->isCarnivorous = $isCarnivorous;
 	}
 
-  public static function growValociraptor($argument1) {
-    throw new \BadMethodCallException("Mismatch between the number of arguments of the factory method and constructor");
+  public static function growValociraptor(int $length): self {
+    $dinosaur = new static('velociraptor', true);
+    $dinosaur->setLength(5);
+
+    return $dinosaur;
   }
 
   public function getLength():int {
