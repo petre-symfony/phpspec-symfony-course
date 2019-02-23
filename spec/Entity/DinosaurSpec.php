@@ -45,4 +45,8 @@ class DinosaurSpec extends ObjectBehavior {
 
 		$this->getLength()->shouldBeGreaterThan(12);
   }
+
+  function it_should_return_full_description(){
+		$this->getDescription()->shouldReturn('The Unknown non-carnivorous dinosaur is 0 meters long');
+  }
 }
