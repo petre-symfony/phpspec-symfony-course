@@ -4,10 +4,20 @@ namespace App\Entity;
 
 class Dinosaur {
 	private $length=0;
+	/**
+	 * @var string
+	 */
+	private $genus;
+	/**
+	 * @var bool
+	 */
+	private $isCarnivorous;
 
-  public function __construct($argument1, $argument2) {
+	public function __construct(string $genus='Unknown', bool $isCarnivorous=false) {
     // TODO: write logic here
-  }
+		$this->genus = $genus;
+		$this->isCarnivorous = $isCarnivorous;
+	}
 
   public function getLength():int {
     return $this->length;
