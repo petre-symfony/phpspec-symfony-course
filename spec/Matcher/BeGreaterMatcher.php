@@ -17,13 +17,20 @@ final class BeGreaterMatcher extends BasicMatcher {
 	}
 
 	protected function getFailureException(string $name, $subject, array $arguments): FailureException {
-		// TODO: Implement getFailureException() method.
+		return new FailureException(
+			"Expected %d to be greater than %d",
+				$subject,
+				$arguments[0]
+		);
 	}
 
 
-
 	protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException {
-		// TODO: Implement getNegativeFailureException() method.
+		return new FailureException(
+				"Expected %d to not be greater than %d",
+				$subject,
+				$arguments[0]
+		);
 	}
 
 }
