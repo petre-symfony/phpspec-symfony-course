@@ -54,6 +54,6 @@ class DinosaurSpec extends ObjectBehavior {
 		$this->beConstructedWith('Tyrannosaurus', true);
 		$this->setLength(12);
 
-		$this->getDescription()->shouldReturn('The Tyrannosaurus carnivorous dynosaur should be 12 meters long');
+		$this->getDescription()->shouldReturn('The Tyrannosaurus carnivorous dinosaur is 12 meters long');
 	}
 }

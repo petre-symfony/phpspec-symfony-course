@@ -14,7 +14,6 @@ class Dinosaur {
 	private $isCarnivorous;
 
 	public function __construct(string $genus='Unknown', bool $isCarnivorous=false) {
-    // TODO: write logic here
 		$this->genus = $genus;
 		$this->isCarnivorous = $isCarnivorous;
 	}
@@ -28,6 +27,11 @@ class Dinosaur {
   }
 
   public function getDescription(): string {
-    return 'The Unknown non-carnivorous dinosaur is 0 meters long';
+    return sprintf(
+      "The %s %scarnivorous dinosaur is %d meters long",
+	    $this->genus,
+	    $this->isCarnivorous ? '' : 'non-',
+		    $this->length
+    );
   }
 }
