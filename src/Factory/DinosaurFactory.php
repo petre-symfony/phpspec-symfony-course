@@ -6,8 +6,17 @@ use App\Entity\Dinosaur;
 
 class DinosaurFactory {
   public function growVelociraptor(int $length): Dinosaur {
-	  $dinosaur = new Dinosaur('velociraptor', true);
-	  $dinosaur->setLength(5);
+
+	  return $this->createDinosaur('velociraptor', true, $length);
+  }
+
+  private function createDinosaur(
+    string $genus,
+    bool $isCarnivorous,
+    int $length
+  ) : Dinosaur{
+	  $dinosaur = new Dinosaur($genus, true);
+	  $dinosaur->setLength($length);
 
 	  return $dinosaur;
   }
