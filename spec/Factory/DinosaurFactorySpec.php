@@ -2,6 +2,7 @@
 
 namespace spec\App\Factory;
 
+use App\Entity\Dinosaur;
 use App\Factory\DinosaurFactory;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -13,6 +14,10 @@ class DinosaurFactorySpec extends ObjectBehavior {
 
   function it_grows_a_large_velociraptor(){
   	$dinosaur = $this->growVelociraptor(5);
-  	var_dump($dinosaur);
+
+	  $dinosaur->shouldBeAnInstanceOf(Dinosaur::class);
+	  $dinosaur->getGenus()->shouldBeString();
+	  $dinosaur->getGenus()->shouldBe('velociraptor');
+	  $dinosaur->getLength()->shouldBe(5);
   }
 }
