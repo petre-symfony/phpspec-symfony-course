@@ -12,4 +12,9 @@ class Dinosaur {
     public function setLength(int $length) {
       $this->length = $length;
     }
+
+    public function getDescription()
+    {
+        // TODO: write logic here
+    }
 }
