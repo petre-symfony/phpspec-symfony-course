@@ -13,7 +13,7 @@ final class BeGreaterMatcher extends BasicMatcher {
 	}
 
 	protected function matches($subject, array $arguments): bool {
-		var_dump($subject, $arguments);
+		return $subject > $arguments[0];
 	}
 
 	protected function getFailureException(string $name, $subject, array $arguments): FailureException {
