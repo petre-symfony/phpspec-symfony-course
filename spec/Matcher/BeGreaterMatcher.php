@@ -6,11 +6,14 @@ use PhpSpec\Matcher\BasicMatcher;
 
 final class BeGreaterMatcher extends BasicMatcher {
 	public function supports(string $name, $subject, array $arguments): bool {
-		var_dump($name, $subject, $arguments);
+		return in_array($name, ['beGreater', 'beGreaterThan'])
+			&& is_numeric($subject)
+			&& count($arguments) == 1
+			&& is_numeric($arguments[0]);
 	}
 
 	protected function matches($subject, array $arguments): bool {
-		// TODO: Implement matches() method.
+		var_dump($subject, $arguments);
 	}
 
 	protected function getFailureException(string $name, $subject, array $arguments): FailureException {
