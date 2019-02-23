@@ -13,8 +13,7 @@ class Dinosaur {
       $this->length = $length;
     }
 
-    public function getDescription()
-    {
-        // TODO: write logic here
+    public function getDescription(): string {
+      return 'The Unknown non-carnivorous dinosaur is 0 meters long';
     }
 }
