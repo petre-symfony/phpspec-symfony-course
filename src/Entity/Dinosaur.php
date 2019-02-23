@@ -18,6 +18,10 @@ class Dinosaur {
 		$this->isCarnivorous = $isCarnivorous;
 	}
 
+  public static function growValociraptor($argument1) {
+    throw new \BadMethodCallException("Mismatch between the number of arguments of the factory method and constructor");
+  }
+
   public function getLength():int {
     return $this->length;
   }
