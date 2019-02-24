@@ -3,6 +3,7 @@
 namespace spec\App\Entity;
 
 use App\Entity\Dinosaur;
+use PhpSpec\Exception\Example\SkippingException;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use PhpSpec\Exception\Example\FailureException;
@@ -64,5 +65,17 @@ class DinosaurSpec extends ObjectBehavior {
 		$this->getGenus()->shouldBeString();
 		$this->getGenus()->shouldBe('velociraptor');
 		$this->getLength()->shouldBe(5);
+	}
+
+	function it_grows_a_triceratops(){
+
+	}
+
+	function it_grows_a_small_velociraptor(){
+		if(!class_exists('Nanny')){
+			throw new SkippingException('Someone needs to look over dino puppies');
+		}
+
+		return $this::growValociraptor()->shouldBeAnInstanceOf(Dinosaur::class);
 	}
 }
