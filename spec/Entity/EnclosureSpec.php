@@ -22,4 +22,15 @@ class EnclosureSpec extends ObjectBehavior {
 
 	  $this->getDinosaurs()->shouldHaveCount(2);
   }
+
+  function it_should_not_allow_to_add_carnivorous_dinosaurs_to_non_carnivorous_enclosures(){
+  	$this->addDinosaur(new Dinosaur('veggie-eater', false));
+
+  	$this
+		  ->shouldThrow()
+		  ->during(
+	      'addDinosaur',
+			  [new Dinosaur('velociraptor', true)]
+		  );
+  }
 }
