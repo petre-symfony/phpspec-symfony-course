@@ -51,4 +51,8 @@ class Dinosaur {
   public function isCarnivorous():bool {
     return $this->isCarnivorous;
   }
+
+  public function hasSameDietAs(Dinosaur $dinosaur) {
+    return $dinosaur->isCarnivorous === $this->isCarnivorous;
+  }
 }

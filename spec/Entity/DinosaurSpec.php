@@ -87,4 +87,8 @@ class DinosaurSpec extends ObjectBehavior {
 		$this->beConstructedWith('Velociraptor', true);
 		$this->shouldBeCarnivorous();
 	}
+
+	function it_should_allow_to_check_if_two_dinosaurs_have_the_same_diet(){
+		$this->shouldHaveSameDietAs(new Dinosaur());
+	}
 }
