@@ -48,4 +48,12 @@ class EnclosureSpec extends ObjectBehavior {
 	    ->duringAddDinosaur(new Dinosaur('velociraptor', true))
 	  ;
   }
+
+  function it_should_fail_if_provide_initial_dinosaurs_without_security(){
+  	$this->beConstructedWith(false, [new Dinosaur()]);
+  	$this
+		  ->shouldThrow(DinosaursAreRunningRampantException::class)
+      ->duringInstantiation()
+	  ;
+  }
 }
