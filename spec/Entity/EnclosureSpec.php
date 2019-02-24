@@ -33,4 +33,8 @@ class EnclosureSpec extends ObjectBehavior {
 			  [new Dinosaur('velociraptor', true)]
 		  );
   }
+
+  function it_should_not_allow_to_add_dinosaurs_to_unsecure_enclosures(){
+  	
+  }
 }
