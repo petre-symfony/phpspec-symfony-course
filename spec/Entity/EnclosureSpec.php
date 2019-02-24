@@ -19,7 +19,7 @@ class EnclosureSpec extends ObjectBehavior {
 
   function it_should_be_able_to_add_dinosaurs(){
 	  $this->beConstructedWith(true);
-	  
+
 		$this->addDinosaur(new Dinosaur());
 	  $this->addDinosaur(new Dinosaur());
 
