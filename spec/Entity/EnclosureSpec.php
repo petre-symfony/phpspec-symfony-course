@@ -4,6 +4,7 @@ namespace spec\App\Entity;
 
 use App\Entity\Dinosaur;
 use App\Entity\Enclosure;
+use App\Exception\DinosaursAreRunningRampantException;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -35,6 +36,12 @@ class EnclosureSpec extends ObjectBehavior {
   }
 
   function it_should_not_allow_to_add_dinosaurs_to_unsecure_enclosures(){
-  	
+  	$this
+		  ->shouldThrow(
+	      new DinosaursAreRunningRampantException(
+	        'Are you crazy?!?'
+	      ))
+	    ->duringAddDinosaur(new Dinosaur('velociraptor', true))
+	  ;
   }
 }
