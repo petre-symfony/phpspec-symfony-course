@@ -97,4 +97,5 @@ class DinosaurSpec extends ObjectBehavior {
 
 		$this->shouldHaveSameDietAs($dinosaur);
 	}
+
 }
