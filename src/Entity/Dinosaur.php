@@ -47,4 +47,8 @@ class Dinosaur {
   public function getGenus(): string {
     return $this->genus;
   }
+
+  public function isCarnivorous() {
+    // TODO: write logic here
+  }
 }
