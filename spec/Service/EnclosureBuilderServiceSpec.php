@@ -24,5 +24,8 @@ class EnclosureBuilderServiceSpec extends ObjectBehavior {
 
 		$enclosure->shouldBeAnInstanceOf(Enclosure::class);
 		$enclosure->isSecurityActive()->shouldReturn(true);
+
+		$enclosure->getDinosaurs()[0]->shouldBe($dino1);
+		$enclosure->getDinosaurs()[1]->shouldBe($dino1);
 	}
 }

@@ -9,9 +9,14 @@ use App\Factory\DinosaurFactory;
 
 class EnclosureBuilderService {
 
-  public function __construct(DinosaurFactory $dinosaurFactory) {
-    // TODO: write logic here;
-  }
+	/**
+	 * @var DinosaurFactory
+	 */
+	private $dinosaurFactory;
+
+	public function __construct(DinosaurFactory $dinosaurFactory) {
+		$this->dinosaurFactory = $dinosaurFactory;
+	}
 
 	public function buildEnclosure(
 			int $numberOfSecuritySystems = 1,
@@ -20,6 +25,7 @@ class EnclosureBuilderService {
 		$enclosure = new Enclosure();
 
 		$this->addSecuritySystems($numberOfSecuritySystems, $enclosure);
+		$this->addDinosaurs($numberOfDinosaurs, $enclosure);
 
 		return $enclosure;
 	}
@@ -35,4 +41,14 @@ class EnclosureBuilderService {
 			$enclosure->addSecurity($security);
 		}
 	}
+
+	private function addDinosaurs(int $numberOfDinosaurs, Enclosure $enclosure) {
+		for($i=0; $i<$numberOfDinosaurs; $i++){
+			$enclosure->addDinosaur(
+				$this->dinosaurFactory->growVelociraptor(5)
+			);
+		}
+	}
+
+
 }
