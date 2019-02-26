@@ -10,12 +10,16 @@ use App\Entity\Enclosure;
 use Prophecy\Argument;
 
 class EnclosureBuilderServiceSpec extends ObjectBehavior {
+	function let(DinosaurFactory $dinosaurFactory){
+		$this->beConstructedWith($dinosaurFactory);
+	}
+
   function it_is_initializable() {
     $this->shouldHaveType(EnclosureBuilderService::class);
   }
 
 	function it_builds_enclosure_with_dinosaurs(DinosaurFactory $dinosaurFactory){
-  	$this->beConstructedWith($dinosaurFactory);
+
   	$dino1 = new Dinosaur('Stegosaurus', false);
   	$dino1->setLength(6);
 
