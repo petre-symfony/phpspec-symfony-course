@@ -5,20 +5,21 @@ namespace spec\App\Service;
 use App\Entity\Dinosaur;
 use App\Factory\DinosaurFactory;
 use App\Service\EnclosureBuilderService;
+use App\Service\EntityManagerInterface;
 use PhpSpec\ObjectBehavior;
 use App\Entity\Enclosure;
 use Prophecy\Argument;
 
 class EnclosureBuilderServiceSpec extends ObjectBehavior {
-	function let(DinosaurFactory $dinosaurFactory){
-		$this->beConstructedWith($dinosaurFactory);
+	function let(DinosaurFactory $dinosaurFactory, EntityManagerInterface $entityManager){
+		$this->beConstructedWith($dinosaurFactory, $entityManager);
 	}
 
   function it_is_initializable() {
     $this->shouldHaveType(EnclosureBuilderService::class);
   }
 
-	function it_builds_enclosure_with_dinosaurs(DinosaurFactory $dinosaurFactory){
+	function it_builds_enclosure_with_dinosaurs(DinosaurFactory $dinosaurFactory, EntityManagerInterface $entityManager){
 
   	$dino1 = new Dinosaur('Stegosaurus', false);
   	$dino1->setLength(6);
@@ -41,5 +42,9 @@ class EnclosureBuilderServiceSpec extends ObjectBehavior {
 
 		$dinosaurFactory->growVelociraptor(Argument::any())
 			->shouldHaveBeenCalled(2);
+
+		$entityManager->persist(Argument::type(Enclosure::class))
+			->shouldHaveBeenCalled();
+		$entityManager->flush()->shouldHaveBeenCalled();
 	}
 }
