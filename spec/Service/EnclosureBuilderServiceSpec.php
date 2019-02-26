@@ -24,9 +24,11 @@ class EnclosureBuilderServiceSpec extends ObjectBehavior {
 
 
   	$dinosaurFactory->growVelociraptor(Argument::type('integer'))->willReturn(
-  			$dino1,
-			  $dino2
+  			$dino1
 	  );
+
+  	$dinosaurFactory->growVelociraptor(5)
+			  ->willReturn($dino2);
 
 		$enclosure = $this->buildEnclosure(1, 2);
 
