@@ -23,7 +23,7 @@ class EnclosureBuilderServiceSpec extends ObjectBehavior {
   	$dino2->setLength(2);
 
 
-  	$dinosaurFactory->growVelociraptor(Argument::any(), Argument::cetera())->willReturn(
+  	$dinosaurFactory->growVelociraptor(Argument::type('integer'))->willReturn(
   			$dino1,
 			  $dino2
 	  );
