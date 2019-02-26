@@ -7,6 +7,7 @@ use App\Factory\DinosaurFactory;
 use App\Service\EnclosureBuilderService;
 use PhpSpec\ObjectBehavior;
 use App\Entity\Enclosure;
+use Prophecy\Argument;
 
 class EnclosureBuilderServiceSpec extends ObjectBehavior {
   function it_is_initializable() {
@@ -22,7 +23,7 @@ class EnclosureBuilderServiceSpec extends ObjectBehavior {
   	$dino2->setLength(2);
 
 
-  	$dinosaurFactory->growVelociraptor(5)->willReturn(
+  	$dinosaurFactory->growVelociraptor(Argument::any())->willReturn(
   			$dino1,
 			  $dino2
 	  );
