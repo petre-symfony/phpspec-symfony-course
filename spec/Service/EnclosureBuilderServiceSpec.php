@@ -27,6 +27,8 @@ class EnclosureBuilderServiceSpec extends ObjectBehavior {
 		  $dino2
 	  );
 
+  	$dinosaurFactory->growVelociraptor(Argument::type('integer'))
+		  ->shouldBeCalledTimes(3);
 		$enclosure = $this->buildEnclosure(1, 2);
 
 		$enclosure->shouldBeAnInstanceOf(Enclosure::class);
